@@ -8,7 +8,7 @@
   "build": "astro build",
   "preview": "astro preview",
   "astro": "astro",
-  "deploy": "astro build && gh-pages -d dist"
+  "deploy-gh": "astro build && git add docs && git commit -m 'Actualizar build para GitHub Pages' && git push"
 },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
