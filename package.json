@@ -2,20 +2,21 @@
   "name": "fausto-memories",
   "type": "module",
   "version": "0.0.1",
-"scripts": {
-  "dev": "astro dev",
-  "start": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "astro": "astro",
-  "deploy-gh": "astro build && git add docs && git commit -m 'Actualizar build para GitHub Pages' && git push"
-},
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy-gh": "astro build && git add docs && git commit -m 'Actualizar build para GitHub Pages' && git push"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.7.13"
   },
   "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
     "gh-pages": "^6.3.0",
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^3.4.17"
   }
 }

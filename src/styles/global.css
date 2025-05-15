@@ -1,13 +1,11 @@
-@import "tailwindcss/preflight";
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
+
 /* Tus estilos personalizados */
 @keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-spin-slow {
@@ -38,10 +36,6 @@
 }
 
 @keyframes twinkle {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -10px -10px;
-  }
+  0% { background-position: 0 0; }
+  100% { background-position: -10px -10px; }
 }
