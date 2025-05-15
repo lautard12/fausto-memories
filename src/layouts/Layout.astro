@@ -1,8 +1,11 @@
 ---
-// La ruta correcta es relativa desde este archivo
+// La ruta correcta es relativa desde este archivo, pero para GitHub Pages necesitamos el BASE_URL
 import '../styles/global.css';
 
 const { title = 'Fausto - El Viaje Cósmico' } = Astro.props;
+
+// Obtener la URL base para referencias absolutas
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <html lang="es">
@@ -11,10 +14,14 @@ const { title = 'Fausto - El Viaje Cósmico' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="El viaje cósmico de Fausto a través de los años, compartido por su padrino" />
     <title>{title}</title>
+    <!-- Asegúrate de que las fuentes se carguen correctamente -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Añade una referencia al archivo CSS global usando la URL base -->
+    <link rel="stylesheet" href={`${baseUrl}styles/global.css`} />
   </head>
   <body class="bg-black text-white font-['Nunito'] min-h-screen overflow-x-hidden">
     <!-- Fondo de estrellas -->
