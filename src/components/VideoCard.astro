@@ -1,0 +1,84 @@
+---
+interface VideoCardProps {
+  year: number;
+  title: string;
+  description: string;
+  videoPath: string;
+  date: string;
+}
+
+const { year, title, description, videoPath, date } = Astro.props as VideoCardProps;
+---
+
+<div id={`video-${year}`} class="mb-20 relative">
+  <!-- Fondo sutil decorativo -->
+  <div class="absolute -inset-10 bg-blue-900/10 rounded-full blur-[80px] z-0"></div>
+  
+  <div class="relative z-10 bg-gradient-to-br from-gray-800/70 to-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-400/20 overflow-hidden">
+    <div class="p-6 md:p-8">
+      <!-- Encabezado de la tarjeta -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 pb-6 border-b border-gray-700/40">
+        <div>
+          <h3 class="text-3xl font-bold text-white mb-2">
+            Año {year}: {title}
+          </h3>
+          <p class="text-gray-300">{description}</p>
+        </div>
+        
+        <div class="mt-4 md:mt-0">
+          <span class="inline-block py-2 px-4 bg-blue-800/30 backdrop-blur-md rounded-full text-blue-200 font-mono">
+            {date}
+          </span>
+        </div>
+      </div>
+      
+      <!-- Contenedor del video -->
+      <div class="aspect-video rounded-lg overflow-hidden mb-6 bg-gray-900/60 relative">
+        <!-- Efecto de borde con brillo sutil -->
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/40 to-gray-500/40 rounded-lg blur opacity-25"></div>
+        
+        <div class="relative rounded-lg overflow-hidden">
+          <!-- Placeholder hasta que tengas el video real -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-20 h-20 mx-auto bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 border border-blue-400/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <p class="text-gray-300">Recuerdos del Año {year}</p>
+              <p class="text-gray-400 text-sm mt-2">Haz clic para reproducir</p>
+            </div>
+          </div>
+          
+          <!-- Video real (cuando lo tengas) -->
+          <!-- <video 
+            controls 
+            class="w-full h-full object-cover"
+            poster="/images/video-poster-year-${year}.jpg"
+          >
+            <source src={videoPath} type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+          </video> -->
+        </div>
+      </div>
+      
+      <!-- Botones de acción -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="px-6 py-3 bg-gradient-to-r from-blue-700 to-indigo-600 rounded-full font-medium hover:from-blue-600 hover:to-indigo-500 transform hover:scale-105 transition duration-300 shadow-md shadow-blue-900/20 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+          </svg>
+          <span>Reproducir Video</span>
+        </button>
+        
+        <button class="px-6 py-3 bg-transparent border border-blue-400 rounded-full font-medium hover:bg-blue-900/20 transform hover:scale-105 transition duration-300 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4a.5.5 0 01-.5-.5v-6.813l3.688 3.688a2.5 2.5 0 003.536 0l3.688-3.688a2.5 2.5 0 013.536 0L20 10.587V15a.5.5 0 01-.5.5h-3zM2.04 6.464A2.5 2.5 0 016.04 6.04L7 7l1.293-1.293a2.5 2.5 0 013.414 0L13 7l.96-.96a2.5 2.5 0 014 .424l2.04 2.04v-3.04a.5.5 0 00-.5-.5H4a.5.5 0 00-.5.5v3.04l-1.96-1.96z" clip-rule="evenodd" />
+          </svg>
+          <span>Ver Fotos</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

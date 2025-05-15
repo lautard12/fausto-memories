@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import YearTimeline from '../components/YearTimeline.astro';
+import VideoCard from '../components/VideoCard.astro';
+import AboutFausto from '../components/AboutFausto.astro';
+import Footer from '../components/Footer.astro';
+
+// Datos de los años que se pueden actualizar conforme pasa el tiempo
+const years = [
+  {
+    year: 1,
+    title: "El Primer Viaje Alrededor del Sol",
+    description: "El año en que Fausto nos iluminó con su llegada y comenzó a explorar su propio mundo.",
+    videoPath: "/videos/year-1/video.mp4",
+    date: "2024"
+  }
+  // Puedes agregar más años en el futuro
+];
+---
+
+<Layout>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    
+    <main class="flex-grow">
+      <HeroSection />
+      
+      <YearTimeline years={years} />
+      
+      <div class="container mx-auto px-4 py-8">
+        {years.map((yearData) => (
+          <VideoCard 
+            year={yearData.year}
+            title={yearData.title}
+            description={yearData.description}
+            videoPath={yearData.videoPath}
+            date={yearData.date}
+          />
+        ))}
+      </div>
+      
+      <AboutFausto />
+    </main>
+    
+    <Footer />
+  </div>
+</Layout>
