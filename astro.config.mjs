@@ -7,8 +7,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://lautard12.github.io',
-  base: '/fausto-memories',
-  build: {
-    assets: 'assets' // Esto puede ayudar con la organización de assets
-  }
+  base: '/fausto-memories/',  // Asegúrate de que haya una barra al final
+  outDir: './docs'  // Cambiar el directorio de salida a 'docs'
 });
