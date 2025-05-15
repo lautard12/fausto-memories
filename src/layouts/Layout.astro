@@ -1,11 +1,11 @@
 ---
-// La ruta correcta es relativa desde este archivo, pero para GitHub Pages necesitamos el BASE_URL
+// Importa los estilos de Tailwind
 import '../styles/global.css';
 
 const { title = 'Fausto - El Viaje Cósmico' } = Astro.props;
 
-// Obtener la URL base para referencias absolutas
-const baseUrl = import.meta.env.BASE_URL;
+// Calcula la URL base para los assets
+const baseUrl = import.meta.env.BASE_URL || '/fausto-memories/';
 ---
 
 <html lang="es">
@@ -14,14 +14,12 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="El viaje cósmico de Fausto a través de los años, compartido por su padrino" />
     <title>{title}</title>
-    <!-- Asegúrate de que las fuentes se carguen correctamente -->
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-    
-    <!-- Añade una referencia al archivo CSS global usando la URL base -->
-    <link rel="stylesheet" href={`${baseUrl}styles/global.css`} />
   </head>
   <body class="bg-black text-white font-['Nunito'] min-h-screen overflow-x-hidden">
     <!-- Fondo de estrellas -->
@@ -30,39 +28,5 @@ const baseUrl = import.meta.env.BASE_URL;
     </div>
     
     <slot />
-    
-    <style>
-      /* Animación de estrellas de fondo */
-      .stars {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-          radial-gradient(2px 2px at 20px 30px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 40px 70px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 50px 160px, white, rgba(0,0,0,0)),
-          radial-gradient(3px 3px at 120px 10px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 140px 200px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 180px 50px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 220px 100px, white, rgba(0,0,0,0)),
-          radial-gradient(3px 3px at 280px 30px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 300px 160px, white, rgba(0,0,0,0)),
-          radial-gradient(2px 2px at 380px 80px, white, rgba(0,0,0,0));
-        background-repeat: repeat;
-        background-size: 400px 400px;
-        animation: twinkle 5s ease-in-out infinite alternate;
-      }
-      
-      @keyframes twinkle {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: -20px -20px;
-        }
-      }
-    </style>
   </body>
 </html>

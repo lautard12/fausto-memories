@@ -8,5 +8,8 @@ export default defineConfig({
   },
   site: 'https://lautard12.github.io',
   base: '/fausto-memories/',  // Asegúrate de que haya una barra al final
-  outDir: './docs'  // Cambiar el directorio de salida a 'docs'
+  trailingSlash: 'always',    // Esto garantiza que todas las URLs tengan barra al final
+  build: {
+    assets: '_assets'         // Prefija los assets con guion bajo
+  }
 });
